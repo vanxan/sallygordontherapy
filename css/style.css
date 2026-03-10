@@ -896,6 +896,25 @@ a { text-decoration: none; color: inherit; }
 
 .cta-phone:hover { color: var(--text-dark); }
 
+.cta-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-detail {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.cta-detail-divider {
+  color: var(--border);
+  font-size: 14px;
+}
+
 /* ============================================
    FOOTER
    ============================================ */
