@@ -144,6 +144,84 @@ a { text-decoration: none; color: inherit; }
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* --- Nav Dropdowns --- */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.nav-dropdown-toggle:hover { color: var(--sage); }
+
+.nav-dropdown-toggle svg {
+  transition: transform 0.2s;
+}
+
+.nav-dropdown.open .nav-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  list-style: none;
+  z-index: 200;
+}
+
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--white);
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-mid);
+  transition: all 0.15s;
+}
+
+.nav-dropdown-menu li a:hover {
+  background: var(--sage-wash);
+  color: var(--sage);
+}
+
 /* ============================================
    BUTTONS
    ============================================ */
@@ -941,6 +1019,27 @@ footer {
 
   .nav-links.open { display: flex; }
   .nav-toggle { display: block; }
+
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 4px 0 0 16px;
+    min-width: 0;
+  }
+
+  .nav-dropdown-menu::before { display: none; }
+
+  .nav-dropdown-menu li a {
+    padding: 8px 0;
+    font-size: 13px;
+  }
+
+  .nav-dropdown-menu li a:hover {
+    background: transparent;
+  }
 
   .hero {
     grid-template-columns: 1fr;
